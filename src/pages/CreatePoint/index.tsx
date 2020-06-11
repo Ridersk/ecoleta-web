@@ -7,10 +7,12 @@ import { LeafletMouseEvent } from 'leaflet'
 import api from '../../services/api';
 
 import Dropzone from '../../components/Dropzone';
-
 import './styles.css'
-
 import logo from '../../assets/logo.svg';
+
+export interface ProcessEnv {
+  [key: string]: string | undefined
+}
 
 interface Item {
   id: number;
@@ -30,7 +32,6 @@ const CreatePoint = () => {
   const [items, setItems] = useState<Item[]>([]);
   const [ufs, setUfs] = useState<string[]>([]);
   const [cities, setCities] = useState<string[]>([]);
-
   const [initialPosition, setinitialPosition] = useState<[number, number]>([0, 0]);
 
   const [formData, setFormdata] = useState({
